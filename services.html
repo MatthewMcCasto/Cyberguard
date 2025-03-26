@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - CyberGuard</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#0F172A',
+                        light: '#F8FAFC'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-slate-800 shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary">
+                        <span class="text-secondary">Cyber</span>Guard
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navHome">Home</a>
+                    <a href="services.html" class="text-primary dark:text-primary font-medium" data-i18n="navServices">Services</a>
+                    <a href="guides.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navGuides">Guides</a>
+                    <a href="news.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navNews">News</a>
+                    <a href="about.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navAbout">About</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Language Selector -->
+                    <select id="language-selector" class="bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md text-sm px-2 py-1">
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="it">🇮🇹 IT</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                    <!-- Dark Mode Toggle -->
+                    <button id="dark-mode-toggle" class="p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2">
+                <a href="index.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navHome">Home</a>
+                <a href="services.html" class="block py-2 text-primary dark:text-primary font-medium" data-i18n="navServices">Services</a>
+                <a href="guides.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navGuides">Guides</a>
+                <a href="news.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navNews">News</a>
+                <a href="about.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navAbout">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4" data-i18n="servicesTitle">Our Security Services</h1>
+            <p class="text-xl mb-0" data-i18n="servicesSubtitle">Free cybersecurity tools and resources for everyone</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow py-12">
+        <div class="container mx-auto px-4">
+            <!-- Services Overview -->
+            <section class="mb-16">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-2xl font-bold mb-6" data-i18n="servicesIntroTitle">What We Offer</h2>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4" data-i18n="servicesIntroText">
+                        CyberGuard provides free cybersecurity tools and resources to help individuals and organizations improve their security posture. Our tools are designed to be easy to use while providing valuable insights into potential security risks.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300" data-i18n="servicesIntroText2">
+                        All our tools are open-source and regularly updated to ensure they remain effective against evolving threats.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Services Grid -->
+            <section class="mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1: Password Security Check -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-6 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-blue-600 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3">Password Security Check</h3>
+                            <p class="text-slate-600 dark:text-slate-300 mb-4">
+                                Check if your passwords have been exposed in data breaches. Our tool uses k-anonymity to ensure your passwords are never transmitted in their entirety.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded-full">Free</span>
+                                <a href="index.html#password-checker" class="text-primary hover:text-blue-700 font-medium inline-flex items-center">
+                                    <span>Use Tool</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Security Best Practices -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="bg-green-100 dark:bg-green-900 p-6 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-green-600 dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3">Security Best Practices</h3>
+                            <p class="text-slate-600 dark:text-slate-300 mb-4">
+                                Comprehensive guides on implementing security best practices for individuals and organizations. Learn how to protect your digital assets from common threats.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded-full">Free</span>
+                                <a href="guides.html" class="text-primary hover:text-blue-700 font-medium inline-flex items-center">
+                                    <span>Explore Guides</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Data Protection Guidelines -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="bg-purple-100 dark:bg-purple-900 p-6 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-purple-600 dark:text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3">Data Protection Guidelines</h3>
+                            <p class="text-slate-600 dark:text-slate-300 mb-4">
+                                Learn how to protect sensitive data according to industry standards and regulations. Our guidelines cover both technical and organizational measures.

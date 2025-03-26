@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity News - CyberGuard</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#0F172A',
+                        light: '#F8FAFC'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-slate-800 shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary">
+                        <span class="text-secondary">Cyber</span>Guard
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navHome">Home</a>
+                    <a href="services.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navServices">Services</a>
+                    <a href="guides.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navGuides">Guides</a>
+                    <a href="news.html" class="text-primary dark:text-primary font-medium" data-i18n="navNews">News</a>
+                    <a href="about.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navAbout">About</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Language Selector -->
+                    <select id="language-selector" class="bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md text-sm px-2 py-1">
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="it">🇮🇹 IT</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                    <!-- Dark Mode Toggle -->
+                    <button id="dark-mode-toggle" class="p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2">
+                <a href="index.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navHome">Home</a>
+                <a href="services.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navServices">Services</a>
+                <a href="guides.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navGuides">Guides</a>
+                <a href="news.html" class="block py-2 text-primary dark:text-primary font-medium" data-i18n="navNews">News</a>
+                <a href="about.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navAbout">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4">Cybersecurity News</h1>
+            <p class="text-xl mb-0">Stay updated with the latest cybersecurity threats and developments</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow py-12">
+        <div class="container mx-auto px-4">
+            <!-- Featured News Section -->
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold mb-8 text-center">Featured Story</h2>
+                
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 bg-blue-50 dark:bg-blue-950 flex items-center justify-center p-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-blue-500 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01" />
+                            </svg>
+                        </div>
+                        <div class="md:w-1/2 p-8">
+                            <span class="inline-block bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs font-medium px-2.5 py-0.5 rounded-full mb-2">CRITICAL ALERT</span>
+                            <h3 class="text-2xl font-bold mb-3">Major Security Vulnerability Discovered in Popular Software</h3>
+                            <p class="text-slate-600 dark:text-slate-300 mb-4">
+                                Security researchers have identified a critical vulnerability affecting millions of systems worldwide. The flaw, nicknamed "SecHole," allows attackers to remotely execute code with system privileges.
+                            </p>
+                            <div class="flex flex-wrap items-center mb-4 text-sm text-slate-500 dark:text-slate-400">
+                                <div class="flex items-center mr-4 mb-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>March 22, 2025</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                    </svg>
+                                    <span>By CyberGuard Research Team</span>
+                                </div>
+                            </div>
+                            <a href="#" class="inline-flex items-center bg-primary hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md transition-colors">
+                                <span>Read Full Story</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest News Section -->
+            <section class="mb-16">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-2xl font-bold">Latest News</h2>
+                    <div class="flex space-x-2">
+                        <select class="bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md text-sm px-3 py-2">
+                            <option value="all">All Categories</option>
+                            <option value="threats">Threats</option>
+                            <option value="research">Research</option>
+                            <option value="events">Events</option>
+                            <option value="industry">Industry</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- News Item 1 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow news-card">
+                        <div class="p-6">
+                            <span class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium px-2.5 py-0.5 rounded-full mb-2">THREAT ALERT</span>
+                            <h3 class="text-xl font-bold mb-2">New Ransomware Campaign Targeting Healthcare</h3>
+                            <p class="text-slate-600 dark:text-slate-300 mb-4">Security researchers have identified a new ransomware variant specifically targeting healthcare organizations. The ransomware, dubbed "MediLock," encrypts medical records and demands payment for decryption keys.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-slate-500 dark:text-slate-400">March 18, 2025</span>
+                                <a href="#" class="text-primary hover:text-blue-700 font-medium">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- News Item 2 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow news-card">
+                        <div class="p-6">
+                            <span class="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-medium px-2.5 py-0.5 rounded-full mb-2">RESEARCH</span>
+                            <h3 class="text-xl font-bold mb-2">AI-Powered Phishing Attacks on the Rise</h3>
+                            <p class="text-slate-600 dark:text-slate-300 mb-4">A new study reveals a 300% increase in AI-generated phishing attempts. These sophisticated attacks use natural language processing to create highly convincing emails that bypass traditional detection methods.</p>
+                            <div class="flex
