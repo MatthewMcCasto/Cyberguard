@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberGuard - Cybersecurity Knowledge Hub</title>
+    <!-- Dark Mode Fix - Add at the beginning -->
+    <script src="assets/js/dark-mode-fix.js"></script>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -35,7 +37,7 @@
                     </a>
                 </div>
                 <div class="hidden md:flex space-x-6">
-                    <a href="index.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navHome">Home</a>
+                    <a href="index.html" class="text-primary dark:text-primary font-medium" data-i18n="navHome">Home</a>
                     <a href="services.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navServices">Services</a>
                     <a href="guides.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navGuides">Guides</a>
                     <a href="news.html" class="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navNews">News</a>
@@ -67,7 +69,7 @@
             </div>
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2">
-                <a href="index.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navHome">Home</a>
+                <a href="index.html" class="block py-2 text-primary dark:text-primary font-medium" data-i18n="navHome">Home</a>
                 <a href="services.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navServices">Services</a>
                 <a href="guides.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navGuides">Guides</a>
                 <a href="news.html" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary font-medium" data-i18n="navNews">News</a>
@@ -121,46 +123,14 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold mb-8 text-center" data-i18n="latestNewsTitle">Latest Cybersecurity News</h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- News Item 1 -->
-                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden">
-                        <div class="p-6">
-                            <span class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium px-2.5 py-0.5 rounded-full mb-2">NEWS</span>
-                            <h3 class="text-xl font-bold mb-2">Major Security Vulnerability Discovered</h3>
-                            <p class="text-slate-600 dark:text-slate-300 mb-4">A critical vulnerability affecting Windows systems has been identified...</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm text-slate-500 dark:text-slate-400">March 15, 2025</span>
-                                <a href="#" class="text-primary hover:text-blue-700 font-medium">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- News Item 2 -->
-                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden">
-                        <div class="p-6">
-                            <span class="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-medium px-2.5 py-0.5 rounded-full mb-2">GUIDE</span>
-                            <h3 class="text-xl font-bold mb-2">Securing Your Home Network</h3>
-                            <p class="text-slate-600 dark:text-slate-300 mb-4">Learn the essential steps to protect your home network from cyber threats...</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm text-slate-500 dark:text-slate-400">March 10, 2025</span>
-                                <a href="#" class="text-primary hover:text-blue-700 font-medium">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- News Item 3 -->
-                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden">
-                        <div class="p-6">
-                            <span class="inline-block bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs font-medium px-2.5 py-0.5 rounded-full mb-2">ALERT</span>
-                            <h3 class="text-xl font-bold mb-2">New Ransomware Campaign Targeting Healthcare</h3>
-                            <p class="text-slate-600 dark:text-slate-300 mb-4">Security researchers have identified a new ransomware variant...</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm text-slate-500 dark:text-slate-400">March 8, 2025</span>
-                                <a href="#" class="text-primary hover:text-blue-700 font-medium">Read More</a>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Loading indicator -->
+                <div id="home-news-loading" class="text-center py-4 mb-6">
+                    <div class="inline-block animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full"></div>
+                    <p class="mt-2 text-slate-600 dark:text-slate-300">Loading latest news...</p>
                 </div>
+                
+                <!-- News container - will be populated by JavaScript -->
+                <div id="home-news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
                 
                 <div class="text-center mt-8">
                     <a href="news.html" class="inline-flex items-center text-primary hover:text-blue-700 font-medium">
@@ -240,5 +210,29 @@
     <script src="assets/js/lang.js"></script>
     <script src="assets/js/hibp.js"></script>
     <script src="assets/js/main.js"></script>
+    
+    <!-- Cybersecurity News API -->
+    <script src="assets/js/cybersecurity-news.js"></script>
+    
+    <script>
+        // Hide the loading indicator when news are loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsContainer = document.getElementById('home-news-container');
+            const loadingIndicator = document.getElementById('home-news-loading');
+            
+            if (newsContainer && loadingIndicator) {
+                newsContainer.addEventListener('DOMNodeInserted', function() {
+                    loadingIndicator.style.display = 'none';
+                });
+                
+                // Fallback: hide loading after 10 seconds even if no news are loaded
+                setTimeout(function() {
+                    if (loadingIndicator) {
+                        loadingIndicator.style.display = 'none';
+                    }
+                }, 10000);
+            }
+        });
+    </script>
 </body>
 </html>
